@@ -9,8 +9,8 @@ class Command(BaseCommand):
         Order.objects.all().delete()
 
         product1 = Product.objects.create(
-        name='Book',
-        price=19.99,
+        name='Game',
+        price=19.20,
         available=True
         )
         customer1 = Customer.objects.create(
@@ -20,8 +20,8 @@ class Command(BaseCommand):
         order1 = Order.objects.create(
         customer=customer1,
         status="NEW",
-        date="2021-10-10"   
-        
+        date="2021-10-11"   
+
         )
 
         order1.products.add(product1)
