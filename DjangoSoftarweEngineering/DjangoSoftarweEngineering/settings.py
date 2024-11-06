@@ -22,6 +22,11 @@ environ.Env.read_env()
 
 SECRET_KEY = "django-insecure-8#" + env('SECRET_KEY')
 DEBUG = env('DEBUG')
+DATABSE = env('DATABSE')
+USER = env('USER')
+PASSWORD = env('PASSWORD')
+HOST = env('HOST')
+PORT = env('PORT')
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'FirstApp'
 ]
 
 MIDDLEWARE = [
@@ -80,8 +86,12 @@ WSGI_APPLICATION = 'DjangoSoftarweEngineering.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABSE,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
+        'HOST': HOST,
+        'PORT': PORT
     }
 }
 
