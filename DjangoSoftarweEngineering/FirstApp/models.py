@@ -10,14 +10,14 @@ class Product(models.Model):
             raise ValidationError('Price must be greater than 0')   
         
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    price = models.DecimalField(decimal_places=2, max_digits=10, validators=[price_validator])
+    name = models.CharField(max_length=100)  # Ensure max_length is set to 50
+    price = models.DecimalField(max_digits=10, decimal_places=2,  validators=[price_validator])
     available = models.BooleanField()
 
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
     address = models.CharField(max_length=255)
 
 
@@ -32,7 +32,11 @@ class Order(models.Model):
     def check_products_availability(self):
         for product in self.products.all():
             if not product.available:
-                raise ValidationError('Product is not available')
+                return False
+        return True
+    
+            
+    
             
 
     id = models.AutoField(primary_key=True)
