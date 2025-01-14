@@ -3,7 +3,7 @@ name: Basic-Ci
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   docs:
