@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'FirstApp',
     'rest_framework',
+    'drf_yasg'
     
 ]
 
