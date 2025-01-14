@@ -31,6 +31,7 @@ jobs:
           python DjangoSoftarweEngineering/manage.py generateschema > docs.json
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{ secrets.DEBUG }}
           
       - name: Commit and push documentation
         run: |
