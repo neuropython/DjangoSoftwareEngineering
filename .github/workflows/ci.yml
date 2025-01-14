@@ -29,13 +29,16 @@ jobs:
         run: |
           source venv/bin/activate
           python DjangoSoftarweEngineering/manage.py generateschema > docs.json
-
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          
       - name: Commit and push documentation
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git add docs.json index.html # modify the paths if necessary
-          git commit -m "Updated documentation"
+          git add docs.json index.html 
+          git commit -m 
           git push origin main
         env:
+          
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
