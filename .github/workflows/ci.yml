@@ -28,11 +28,11 @@ jobs:
             run: |
               echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
               echo "DEBUG=${{ secrets.DEBUG }}" >> .env
-              echo "USER=${{ secrets.USER }}" >> .env
-              echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
-              echo "DATABSE=${{ secrets.DATABSE }}" >> .env
-              echo "HOST=${{ secrets.HOST }}" >> .env
-              echo "PORT=${{ secrets.PORT }}" >> .env
+              echo "USER=testuser" >> .env
+              echo "PASSWORD=testpassword" >> .env
+              echo "DATABSE=testdb" >> .env
+              echo "HOST=localhost " >> .env
+              echo "PORT=5432" >> .env
 
           - name: Build and start Containers
             run: docker-compose up --build -d
