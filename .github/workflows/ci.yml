@@ -31,7 +31,7 @@ jobs:
               echo "USER=testuser" >> .env
               echo "PASSWORD=testpassword" >> .env
               echo "DATABSE=testdb" >> .env
-              echo "HOST=localhost " >> .env
+              echo "HOST=db " >> .env
               echo "PORT=5432" >> .env
 
           - name: Build and start Containers
