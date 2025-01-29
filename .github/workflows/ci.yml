@@ -15,19 +15,16 @@ jobs:
           POSTGRES_USER: testuser
           POSTGRES_PASSWORD: testpassword
           POSTGRES_DB: testdb
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{ secrets.DEBUG }}
+          DATABSE: ${{ secrets.DATABSE }}
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
     steps:
           - name: Check out code
             uses: actions/checkout@v2
-
-          - name: Create .env file
-            run: |
-              echo "SECRET_KEY=your_secret_key" >> .env
-              echo "DEBUG=True" >> .env
-              echo "USER=testuser" >> .env
-              echo "PASSWORD=testpassword" >> .env
-              echo "DATABSE=testdb" >> .env
-              echo "HOST=localhost" >> .env
-              echo "PORT=5432" >> .env              
 
           - name: Set up Docker
             run: |
