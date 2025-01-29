@@ -15,13 +15,6 @@ jobs:
           POSTGRES_USER: testuser
           POSTGRES_PASSWORD: testpassword
           POSTGRES_DB: testdb
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DEBUG: ${{ secrets.DEBUG }}
-          DATABSE: ${{ secrets.DATABSE }}
-          USER: ${{ secrets.USER }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          HOST: ${{ secrets.HOST }}
-          PORT: ${{ secrets.PORT }}
     steps:
           - name: Check out code
             uses: actions/checkout@v2
@@ -30,6 +23,16 @@ jobs:
             run: |
               sudo apt-get update
               sudo apt-get install -y docker-compose
+
+          - name: Create .env file
+            run: |
+              echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
+              echo "DEBUG=${{ secrets.DEBUG }}" >> .env
+              echo "USER=${{ secrets.USER }}" >> .env
+              echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
+              echo "DATABSE=${{ secrets.DATABSE }}" >> .env
+              echo "HOST=${{ secrets.HOST }}" >> .env
+              echo "PORT=${{ secrets.PORT }}" >> .env
 
           - name: Build and start Containers
             run: docker-compose up --build -d
